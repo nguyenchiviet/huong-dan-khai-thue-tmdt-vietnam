@@ -1,0 +1,2478 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng dẫn Khai & Nộp Thuế TMĐT Việt Nam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a4b8c;
+            --primary-dark: #0d2d54;
+            --primary-light: #2e6bc6;
+            --accent: #e63946;
+            --accent-light: #ff6b6b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-dark: #0f172a;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --sidebar-width: 280px;
+            --header-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--header-height) + 20px);
+        }
+
+        body {
+            font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--header-height);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .logo-text {
+            color: white;
+        }
+
+        .logo-text h1 {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            font-size: 11px;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        .header-badge {
+            margin-left: auto;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: white;
+            font-size: 12px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--header-height));
+            background: var(--bg-card);
+            border-right: 1px solid var(--border);
+            overflow-y: auto;
+            z-index: 100;
+            padding: 20px 0;
+        }
+
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        .nav-section {
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+
+        .nav-section-title {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+            padding: 10px 15px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            border-radius: var(--radius-md);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            margin-bottom: 4px;
+        }
+
+        .nav-item:hover {
+            background: var(--bg-main);
+            color: var(--primary);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-item .icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-sm);
+            background: rgba(26, 75, 140, 0.1);
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .nav-item.active .icon {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .nav-item .nav-text {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .nav-item .step-badge {
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: var(--bg-main);
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .nav-item.active .step-badge {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        /* Main Content */
+        .main {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--header-height);
+            padding: 30px;
+            min-height: calc(100vh - var(--header-height));
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 40px;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .section-icon.blue { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
+        .section-icon.green { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .section-icon.orange { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .section-icon.purple { background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); }
+        .section-icon.red { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
+        .section-icon.teal { background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%); }
+
+        .section-title {
+            flex: 1;
+        }
+
+        .section-title h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .section-title p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        .card-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .card-toggle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--bg-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 12px;
+        }
+
+        .card.collapsed .card-toggle {
+            transform: rotate(-90deg);
+        }
+
+        .card-content {
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .card.collapsed .card-content {
+            max-height: 0;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        /* Step Cards */
+        .step-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 0;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 20px;
+            cursor: pointer;
+            background: var(--bg-main);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .step-header:hover {
+            background: #f1f5f9;
+        }
+
+        .step-number {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .step-info {
+            flex: 1;
+        }
+
+        .step-info h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+        }
+
+        .step-info span {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .step-toggle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .step-card.collapsed .step-toggle {
+            transform: rotate(-90deg);
+        }
+
+        .step-content {
+            padding: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .step-card.collapsed .step-content {
+            max-height: 0;
+            padding: 0 20px;
+            opacity: 0;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
+            margin: 15px 0;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .info-box .icon {
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .info-box.note {
+            background: #fef3c7;
+            border-left: 4px solid var(--warning);
+        }
+
+        .info-box.important {
+            background: #fee2e2;
+            border-left: 4px solid var(--accent);
+        }
+
+        .info-box.tip {
+            background: #d1fae5;
+            border-left: 4px solid var(--success);
+        }
+
+        .info-box.info {
+            background: #dbeafe;
+            border-left: 4px solid var(--info);
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .info-box p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 15px 0;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background: var(--bg-main);
+        }
+
+        tr:hover {
+            background: #f1f5f9;
+        }
+
+        .table-highlight {
+            background: #fef3c7 !important;
+            font-weight: 500;
+        }
+
+        /* Code/URL blocks */
+        .code-block {
+            background: var(--bg-dark);
+            color: #e2e8f0;
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        .url-block {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: #60a5fa;
+            padding: 14px 20px;
+            border-radius: var(--radius-md);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .url-block .icon {
+            font-size: 18px;
+        }
+
+        /* Action Items */
+        .action-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .action-item:last-child {
+            border-bottom: none;
+        }
+
+        .action-number {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .action-text {
+            flex: 1;
+            font-size: 14px;
+        }
+
+        .action-text strong {
+            color: var(--primary);
+        }
+
+        /* Button Indicator */
+        .btn-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 4px 2px;
+        }
+
+        .btn-indicator.secondary {
+            background: var(--bg-main);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        /* Progress Flow */
+        .progress-flow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px 20px;
+            background: linear-gradient(135deg, var(--bg-main) 0%, #e2e8f0 100%);
+            border-radius: var(--radius-lg);
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            min-width: 80px;
+        }
+
+        .progress-step .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .progress-step.active .step-circle {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(26, 75, 140, 0.4);
+        }
+
+        .progress-step.completed .step-circle {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        .progress-step .step-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .progress-step.active .step-label,
+        .progress-step.completed .step-label {
+            color: var(--text-primary);
+        }
+
+        .progress-connector {
+            flex: 1;
+            height: 3px;
+            background: var(--border);
+            margin: 0 -10px;
+            margin-bottom: 20px;
+        }
+
+        .progress-connector.active {
+            background: linear-gradient(90deg, var(--success) 0%, var(--primary) 100%);
+        }
+
+        /* Tax Calculator Preview */
+        .tax-preview {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            color: white;
+            margin: 20px 0;
+        }
+
+        .tax-preview h4 {
+            font-size: 14px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .tax-preview .tax-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .tax-preview .tax-row:last-child {
+            border-bottom: none;
+        }
+
+        .tax-preview .tax-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .tax-preview .tax-value {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .tax-preview .tax-total {
+            background: rgba(255,255,255,0.1);
+            border-radius: var(--radius-md);
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .tax-preview .tax-total .label {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .tax-preview .tax-total .value {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist .check-icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--success);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            color: white;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: var(--radius-md);
+        }
+
+        .hero-stat .value {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .hero-stat .label {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        /* TOC Cards */
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 25px 0;
+        }
+
+        .toc-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            border: 1px solid var(--border);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .toc-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .toc-card .toc-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .toc-card .toc-text h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .toc-card .toc-text p {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            padding: 30px;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 5px;
+        }
+
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main {
+                margin-left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 0 15px;
+            }
+
+            .main {
+                padding: 20px 15px;
+            }
+
+            .hero {
+                padding: 25px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .progress-flow {
+                padding: 15px;
+            }
+
+            .progress-step .step-label {
+                font-size: 9px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .sidebar, .header {
+                display: none;
+            }
+
+            .main {
+                margin: 0;
+                padding: 20px;
+            }
+
+            .card, .step-card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🏛️</div>
+                <div class="logo-text">
+                    <h1>THUẾ VIỆT NAM</h1>
+                    <span>Hướng dẫn khai & nộp thuế TMĐT</span>
+                </div>
+            </div>
+            <div class="header-badge">📅 Cập nhật: Tháng 12/2025</div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <nav class="nav-section">
+            <div class="nav-section-title">Tổng quan</div>
+            <a href="#hero" class="nav-item active">
+                <span class="icon">🏠</span>
+                <span class="nav-text">Giới thiệu</span>
+            </a>
+            <a href="#requirements" class="nav-item">
+                <span class="icon">📋</span>
+                <span class="nav-text">Yêu cầu chuẩn bị</span>
+            </a>
+        </nav>
+
+        <nav class="nav-section">
+            <div class="nav-section-title">Quy trình thực hiện</div>
+            <a href="#part-a" class="nav-item">
+                <span class="icon">🔐</span>
+                <span class="nav-text">Đăng ký MST TMĐT</span>
+                <span class="step-badge">A</span>
+            </a>
+            <a href="#part-b" class="nav-item">
+                <span class="icon">📝</span>
+                <span class="nav-text">Kê khai thuế</span>
+                <span class="step-badge">B</span>
+            </a>
+            <a href="#part-c" class="nav-item">
+                <span class="icon">🏦</span>
+                <span class="nav-text">Liên kết ngân hàng</span>
+                <span class="step-badge">C</span>
+            </a>
+            <a href="#part-d" class="nav-item">
+                <span class="icon">💳</span>
+                <span class="nav-text">Nộp thuế</span>
+                <span class="step-badge">D</span>
+            </a>
+        </nav>
+
+        <nav class="nav-section">
+            <div class="nav-section-title">Thông tin bổ sung</div>
+            <a href="#tax-rate" class="nav-item">
+                <span class="icon">📊</span>
+                <span class="nav-text">Thuế suất</span>
+            </a>
+            <a href="#notes" class="nav-item">
+                <span class="icon">⚠️</span>
+                <span class="nav-text">Lưu ý quan trọng</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="content-wrapper">
+            <!-- Hero Section -->
+            <section id="hero" class="hero">
+                <div class="hero-content">
+                    <h1>Hướng dẫn Khai & Nộp Thuế<br>Thương Mại Điện Tử</h1>
+                    <p>Tài liệu hướng dẫn chi tiết quy trình kê khai và nộp thuế cho cá nhân kinh doanh trên các nền tảng TMĐT như Etsy, Amazon, eBay, Shopee...</p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="value">4</div>
+                            <div class="label">Phần chính</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="value">1.5%</div>
+                            <div class="label">Thuế suất tổng</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="value">~30 phút</div>
+                            <div class="label">Thời gian hoàn thành</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Navigation -->
+            <div class="toc-grid">
+                <a href="#part-a" class="toc-card">
+                    <div class="toc-icon" style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); color: white;">A</div>
+                    <div class="toc-text">
+                        <h3>Đăng ký MST TMĐT</h3>
+                        <p>Đăng ký mã số thuế cho hoạt động kinh doanh TMĐT</p>
+                    </div>
+                </a>
+                <a href="#part-b" class="toc-card">
+                    <div class="toc-icon" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white;">B</div>
+                    <div class="toc-text">
+                        <h3>Kê khai thuế</h3>
+                        <p>Khai báo doanh thu và tính thuế phải nộp</p>
+                    </div>
+                </a>
+                <a href="#part-c" class="toc-card">
+                    <div class="toc-icon" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white;">C</div>
+                    <div class="toc-text">
+                        <h3>Liên kết ngân hàng</h3>
+                        <p>Kết nối tài khoản ngân hàng để thanh toán</p>
+                    </div>
+                </a>
+                <a href="#part-d" class="toc-card">
+                    <div class="toc-icon" style="background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); color: white;">D</div>
+                    <div class="toc-text">
+                        <h3>Nộp thuế</h3>
+                        <p>Hoàn tất thanh toán thuế qua ngân hàng</p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Requirements Section -->
+            <section id="requirements" class="section">
+                <div class="section-header">
+                    <div class="section-icon blue">📋</div>
+                    <div class="section-title">
+                        <h2>Yêu cầu trước khi bắt đầu</h2>
+                        <p>Chuẩn bị đầy đủ trước khi thực hiện quy trình</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <h3>📑 Tài liệu cần chuẩn bị</h3>
+                        <div class="card-toggle">▼</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Tài liệu</th>
+                                        <th>Mục đích</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><strong>Căn Cước Công Dân (CCCD)</strong></td>
+                                        <td>Xác thực danh tính</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td><strong>Tài khoản VNeID</strong></td>
+                                        <td>Đăng nhập hệ thống thuế</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td><strong>Số điện thoại đăng ký VNeID</strong></td>
+                                        <td>Nhận mã OTP xác thực</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td><strong>Tài khoản ngân hàng</strong></td>
+                                        <td>Nộp thuế online</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td><strong>Doanh thu cần kê khai</strong></td>
+                                        <td>Nhập vào tờ khai thuế</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <h3>💡 Thông tin cần biết trước</h3>
+                        <div class="card-toggle">▼</div>
+                    </div>
+                    <div class="card-content">
+                        <ul class="checklist">
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <strong>Ngày bắt đầu hoạt động kinh doanh</strong>
+                                    <p style="font-size: 13px; color: var(--text-secondary);">Ngày đầu tiên shop/tài khoản bán hàng hoạt động (ví dụ: ngày mở shop Etsy)</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <strong>Ngành nghề kinh doanh</strong>
+                                    <p style="font-size: 13px; color: var(--text-secondary);">G47910 - Bán lẻ theo yêu cầu đặt hàng qua bưu điện hoặc internet</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <strong>Địa chỉ kinh doanh</strong>
+                                    <p style="font-size: 13px; color: var(--text-secondary);">Thường là địa chỉ nơi cư trú hiện tại theo CCCD</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <strong>Doanh thu</strong>
+                                    <p style="font-size: 13px; color: var(--text-secondary);">Tổng doanh thu trong kỳ kê khai, đơn vị: VND (quy đổi từ USD nếu cần)</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part A: Đăng ký MST -->
+            <section id="part-a" class="section">
+                <div class="section-header">
+                    <div class="section-icon blue">🔐</div>
+                    <div class="section-title">
+                        <h2>Phần A: Đăng ký Mã số thuế TMĐT</h2>
+                        <p>Dành cho người chưa có MST cho hoạt động kinh doanh TMĐT</p>
+                    </div>
+                </div>
+
+                <div class="info-box note">
+                    <span class="icon">💡</span>
+                    <div>
+                        <strong>Lưu ý</strong>
+                        <p>Phần này chỉ áp dụng cho người <strong>chưa có</strong> Mã số thuế cho hoạt động kinh doanh TMĐT. Nếu đã có MST TMĐT, bỏ qua và chuyển sang <a href="#part-b">Phần B</a>.</p>
+                    </div>
+                </div>
+
+                <!-- Progress Flow -->
+                <div class="progress-flow">
+                    <div class="progress-step completed">
+                        <div class="step-circle">01</div>
+                        <span class="step-label">Thông tin chung</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step completed">
+                        <div class="step-circle">02</div>
+                        <span class="step-label">Kê khai hồ sơ</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step completed">
+                        <div class="step-circle">03</div>
+                        <span class="step-label">Kiểm tra</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step completed">
+                        <div class="step-circle">04</div>
+                        <span class="step-label">Nộp hồ sơ</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step active">
+                        <div class="step-circle">05</div>
+                        <span class="step-label">Kết quả</span>
+                    </div>
+                </div>
+
+                <!-- Step 1 -->
+                <div class="step-card" id="step-a1">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">1</div>
+                        <div class="step-info">
+                            <h4>Truy cập và đăng nhập</h4>
+                            <span>Đăng nhập bằng tài khoản VNeID</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="url-block">
+                            <span class="icon">🔗</span>
+                            <span>https://canhantmdt.gdt.gov.vn/ICanhan/Request</span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">1</span>
+                            <span class="action-text">Truy cập địa chỉ website trên</span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">2</span>
+                            <span class="action-text">Chọn <span class="btn-indicator">Đăng nhập bằng VNeID</span></span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">3</span>
+                            <span class="action-text">Xác thực qua ứng dụng <strong>VNeID</strong> trên điện thoại</span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">4</span>
+                            <span class="action-text">Đăng nhập thành công → Hệ thống tự động chuyển đến màn hình đăng ký MST TMĐT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card" id="step-a2">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">2</div>
+                        <div class="step-info">
+                            <h4>Thông tin chung (Bước 01/05)</h4>
+                            <span>Xác nhận thông tin cá nhân từ VNeID</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <p>Các thông tin được <strong>tự động điền</strong> từ VNeID:</p>
+                        <ul class="checklist">
+                            <li><span class="check-icon">✓</span><span>Tên người nộp thuế</span></li>
+                            <li><span class="check-icon">✓</span><span>Số CCCD</span></li>
+                            <li><span class="check-icon">✓</span><span>Ngày sinh</span></li>
+                        </ul>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Tiếp tục</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card" id="step-a3">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">3</div>
+                        <div class="step-info">
+                            <h4>Kê khai hồ sơ (Bước 02/05)</h4>
+                            <span>Điền các trường thông tin còn thiếu</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <p><strong>Tờ khai đăng ký thuế - Mẫu 03-ĐK-TCT</strong></p>
+                        <p style="margin-bottom: 15px; font-size: 14px;">Phần lớn thông tin đã được lấy tự động. Chỉ cần điền các trường sau:</p>
+                        
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th style="width: 60px;">Mục</th>
+                                        <th style="width: 180px;">Trường thông tin</th>
+                                        <th>Hướng dẫn</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>4đ</strong></td>
+                                        <td>Điện thoại</td>
+                                        <td>Số điện thoại liên hệ</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>4đ</strong></td>
+                                        <td>Email</td>
+                                        <td>Email liên hệ</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>8h</strong></td>
+                                        <td>Ngày cấp</td>
+                                        <td>Ngày cấp CCCD</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>8h</strong></td>
+                                        <td>Nơi cấp</td>
+                                        <td>Cục Cảnh sát QLHC về TTXH</td>
+                                    </tr>
+                                    <tr class="table-highlight">
+                                        <td><strong>10</strong></td>
+                                        <td>Ngành nghề KD chính</td>
+                                        <td><strong>G47910</strong> - Bán lẻ theo yêu cầu đặt hàng qua bưu điện hoặc internet</td>
+                                    </tr>
+                                    <tr class="table-highlight">
+                                        <td><strong>11</strong></td>
+                                        <td>Ngày bắt đầu hoạt động</td>
+                                        <td>Ngày đầu tiên shop/tài khoản bán hàng hoạt động</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Tiếp tục</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-card" id="step-a4">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">4</div>
+                        <div class="step-info">
+                            <h4>Kiểm tra (Bước 03/05)</h4>
+                            <span>Xác nhận thông tin tờ khai</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="action-item">
+                            <span class="action-number">1</span>
+                            <span class="action-text">Hệ thống hiển thị tờ khai để kiểm tra thông tin</span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">2</span>
+                            <span class="action-text">Kéo xuống <strong>cuối trang</strong></span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">3</span>
+                            <span class="action-text">Nhập <strong>Mã captcha</strong></span>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Tiếp tục</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="step-card" id="step-a5">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">5</div>
+                        <div class="step-info">
+                            <h4>Nộp hồ sơ (Bước 04/05)</h4>
+                            <span>Xác thực OTP qua số điện thoại</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="action-item">
+                            <span class="action-number">1</span>
+                            <span class="action-text">Hệ thống gửi <strong>mã OTP</strong> về số điện thoại đã đăng ký VNeID</span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">2</span>
+                            <span class="action-text">Mã OTP có hiệu lực trong khoảng <strong>5 phút</strong> (300 giây)</span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">3</span>
+                            <span class="action-text">Nhập mã OTP vào ô nhập</span>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Tiếp tục</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="step-card" id="step-a6">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">6</div>
+                        <div class="step-info">
+                            <h4>Kết quả (Bước 05/05)</h4>
+                            <span>Nhận MST cho hoạt động TMĐT</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="info-box tip">
+                            <span class="icon">✅</span>
+                            <div>
+                                <strong>Thông báo thành công</strong>
+                                <p>Hiển thị <strong>Mã lỗi 2305</strong>: "NNT đã được cấp MST &[Số MST]-888& cho hoạt động kinh doanh thương mại điện tử"</p>
+                            </div>
+                        </div>
+                        <div class="info-box info">
+                            <span class="icon">ℹ️</span>
+                            <div>
+                                <strong>Giải thích</strong>
+                                <p>Đây thực chất là thông báo <strong>THÀNH CÔNG</strong>. MST cho TMĐT = MST cá nhân + đuôi <strong>-888</strong>, hoặc MST TMĐT = Số CCCD (nếu chưa có MST cá nhân trước đó).</p>
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Đăng nhập lại</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part B: Kê khai thuế -->
+            <section id="part-b" class="section">
+                <div class="section-header">
+                    <div class="section-icon green">📝</div>
+                    <div class="section-title">
+                        <h2>Phần B: Kê khai thuế TMĐT</h2>
+                        <p>Khai báo doanh thu và tính thuế phải nộp</p>
+                    </div>
+                </div>
+
+                <!-- Progress Flow -->
+                <div class="progress-flow">
+                    <div class="progress-step completed">
+                        <div class="step-circle">01</div>
+                        <span class="step-label">Thông tin chung</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step completed">
+                        <div class="step-circle">02</div>
+                        <span class="step-label">Khai doanh thu</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step completed">
+                        <div class="step-circle">03</div>
+                        <span class="step-label">Kiểm tra</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step completed">
+                        <div class="step-circle">04</div>
+                        <span class="step-label">Xác thực</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step active">
+                        <div class="step-circle">05</div>
+                        <span class="step-label">Kết quả</span>
+                    </div>
+                </div>
+
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">1</div>
+                        <div class="step-info">
+                            <h4>Xác nhận MST TMĐT</h4>
+                            <span>Sau khi đăng nhập lại</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <p>Sau khi đăng nhập lại, hệ thống hiển thị thông báo:</p>
+                        <div class="info-box info">
+                            <span class="icon">📋</span>
+                            <div>
+                                <p>"Bạn đã được cấp mã số thuế cho hoạt động kinh doanh thương mại điện tử là: <strong>[Số MST]</strong>. Đề nghị bạn sử dụng mã số thuế này để kê khai, nộp thuế."</p>
+                            </div>
+                        </div>
+                        <p>→ Nhấn <span class="btn-indicator">Đồng ý</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">2</div>
+                        <div class="step-info">
+                            <h4>Chọn loại tờ khai</h4>
+                            <span>Chọn tờ khai 02/CNKD-TMĐT</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="action-item">
+                            <span class="action-number">1</span>
+                            <span class="action-text">Tại trang chủ, nhấn <span class="btn-indicator">Khai thuế cho hoạt động kinh doanh TMĐT</span></span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">2</span>
+                            <span class="action-text">Chọn <span class="btn-indicator">Tờ khai 02/CNKD-TMĐT</span></span>
+                        </div>
+                        
+                        <div class="table-wrapper" style="margin-top: 15px;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Loại</th>
+                                        <th>Mô tả</th>
+                                        <th>Áp dụng cho</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01/CNKD</td>
+                                        <td>Tờ khai thuế cá nhân kinh doanh thông thường</td>
+                                        <td>Kinh doanh truyền thống</td>
+                                    </tr>
+                                    <tr class="table-highlight">
+                                        <td><strong>02/CNKD-TMĐT</strong></td>
+                                        <td>Tờ khai thuế cho TMĐT</td>
+                                        <td><strong>Kinh doanh online ✓</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">3</div>
+                        <div class="step-info">
+                            <h4>Chọn phương pháp kê khai</h4>
+                            <span>Theo tháng hoặc theo lần phát sinh</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <p>Popup hiện ra với 2 lựa chọn:</p>
+                        <div class="table-wrapper" style="margin-top: 15px;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Phương pháp</th>
+                                        <th>Mô tả</th>
+                                        <th>Phù hợp với</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Kê khai theo tháng</td>
+                                        <td>Hoạt động kinh doanh thường xuyên</td>
+                                        <td>Doanh thu đều đặn hàng tháng</td>
+                                    </tr>
+                                    <tr class="table-highlight">
+                                        <td><strong>Kê khai theo lần phát sinh</strong></td>
+                                        <td>Hoạt động kinh doanh không thường xuyên</td>
+                                        <td><strong>Doanh thu không đều, theo đợt ✓</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p style="margin-top: 15px;">→ Chọn phương pháp phù hợp → Nhấn <span class="btn-indicator">Chọn</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">4</div>
+                        <div class="step-info">
+                            <h4>Thông tin chung (Bước 01/05)</h4>
+                            <span>Xác nhận thông tin tờ khai</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <p>Các trường được <strong>tự động điền</strong>:</p>
+                        <ul class="checklist">
+                            <li><span class="check-icon">✓</span><span><strong>Mã số thuế kê khai</strong>: MST TMĐT</span></li>
+                            <li><span class="check-icon">✓</span><span><strong>Cơ quan thuế quản lý</strong>: Tự động theo địa chỉ đăng ký</span></li>
+                            <li><span class="check-icon">✓</span><span><strong>Ngày phát sinh</strong>: Ngày hiện tại</span></li>
+                            <li><span class="check-icon">✓</span><span><strong>Loại tờ khai</strong>: Tờ khai chính thức</span></li>
+                        </ul>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Tiếp tục</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">5</div>
+                        <div class="step-info">
+                            <h4>Khai doanh thu phát sinh (Bước 02/05)</h4>
+                            <span>Nhập doanh thu và tính thuế</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <p><strong>Bảng kê khai thuế GTGT và thuế TNCN:</strong></p>
+                        <div class="table-wrapper" style="margin-top: 15px;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Nhóm ngành nghề</th>
+                                        <th>Doanh thu (a)</th>
+                                        <th>Thuế GTGT (b)</th>
+                                        <th>Thuế TNCN (d)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-highlight">
+                                        <td>1</td>
+                                        <td><strong>Cung cấp hàng hóa</strong></td>
+                                        <td>📝 Nhập số tiền</td>
+                                        <td>Tự động tính</td>
+                                        <td>Tự động tính</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Cung cấp dịch vụ</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Vận tải, dịch vụ có gắn với hàng hóa</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Hoạt động kinh doanh khác</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="info-box tip">
+                            <span class="icon">💡</span>
+                            <div>
+                                <strong>Hướng dẫn nhập</strong>
+                                <p>Chỉ cần nhập <strong>Doanh thu</strong> vào cột (a) của hàng "Cung cấp hàng hóa". Các cột còn lại sẽ <strong>tự động tính toán</strong>.</p>
+                            </div>
+                        </div>
+
+                        <p><strong>Câu hỏi thuế tiêu thụ đặc biệt:</strong></p>
+                        <p style="font-size: 14px; color: var(--text-secondary);">"Bạn có phát sinh doanh thu từ hoạt động cung cấp hàng hóa, dịch vụ thuộc danh mục hàng hóa chịu thuế tiêu thụ đặc biệt không?"</p>
+                        <p>→ Chọn <span class="btn-indicator secondary">Không</span> (với hàng hóa thông thường)</p>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Tiếp tục</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">6</div>
+                        <div class="step-info">
+                            <h4>Kiểm tra (Bước 03/05)</h4>
+                            <span>Xác nhận tờ khai và số thuế</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <p>Hệ thống hiển thị bản xem trước tờ khai với tổng số thuế phải nộp:</p>
+                        
+                        <div class="tax-preview">
+                            <h4>💰 Tổng hợp số thuế phải nộp</h4>
+                            <div class="tax-row">
+                                <span class="tax-label">Thuế GTGT (1%)</span>
+                                <span class="tax-value">X VND</span>
+                            </div>
+                            <div class="tax-row">
+                                <span class="tax-label">Thuế TNCN (0.5%)</span>
+                                <span class="tax-value">Y VND</span>
+                            </div>
+                            <div class="tax-row">
+                                <span class="tax-label">Thuế tiêu thụ đặc biệt</span>
+                                <span class="tax-value">0 VND</span>
+                            </div>
+                            <div class="tax-total">
+                                <div class="label">Số thuế của bạn phải nộp là</div>
+                                <div class="value">Z VND</div>
+                            </div>
+                        </div>
+
+                        <div class="action-item">
+                            <span class="action-number">1</span>
+                            <span class="action-text">Kéo xuống <strong>cuối trang</strong></span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">2</span>
+                            <span class="action-text">Nhập <strong>Mã captcha</strong></span>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Nộp tờ khai</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">7</div>
+                        <div class="step-info">
+                            <h4>Xác thực (Bước 04/05)</h4>
+                            <span>Xác thực OTP qua SMS</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="action-item">
+                            <span class="action-number">1</span>
+                            <span class="action-text">Nhập <strong>mã OTP</strong> được gửi về số điện thoại</span>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Tiếp tục</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 8 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">8</div>
+                        <div class="step-info">
+                            <h4>Kết quả (Bước 05/05)</h4>
+                            <span>Kê khai thành công</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="info-box tip">
+                            <span class="icon">🎉</span>
+                            <div>
+                                <strong>KÊ KHAI THÀNH CÔNG</strong>
+                                <p>Hiển thị số thuế phải nộp: Thuế GTGT + Thuế TNCN</p>
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Nộp thuế ngay</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part C: Liên kết ngân hàng -->
+            <section id="part-c" class="section">
+                <div class="section-header">
+                    <div class="section-icon orange">🏦</div>
+                    <div class="section-title">
+                        <h2>Phần C: Liên kết tài khoản ngân hàng</h2>
+                        <p>Kết nối tài khoản ngân hàng để thanh toán thuế</p>
+                    </div>
+                </div>
+
+                <div class="info-box note">
+                    <span class="icon">💡</span>
+                    <div>
+                        <strong>Lưu ý</strong>
+                        <p>Bước này chỉ cần thực hiện <strong>MỘT LẦN</strong>. Nếu đã liên kết tài khoản trước đó, bỏ qua và chuyển sang <a href="#part-d">Phần D</a>.</p>
+                    </div>
+                </div>
+
+                <!-- Progress Flow -->
+                <div class="progress-flow">
+                    <div class="progress-step completed">
+                        <div class="step-circle">01</div>
+                        <span class="step-label">Thông tin TK</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step completed">
+                        <div class="step-circle">02</div>
+                        <span class="step-label">Kiểm tra</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step completed">
+                        <div class="step-circle">03</div>
+                        <span class="step-label">Xác thực</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step active">
+                        <div class="step-circle">04</div>
+                        <span class="step-label">Kết quả</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <h3>🏦 Các ngân hàng hỗ trợ</h3>
+                        <div class="card-toggle">▼</div>
+                    </div>
+                    <div class="card-content">
+                        <p style="font-size: 14px; line-height: 2;">
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">BIDV</span>
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">Vietcombank</span>
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">ACB</span>
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">VietinBank</span>
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">EXIMBANK</span>
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">Sacombank</span>
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">VPBank</span>
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">Techcombank</span>
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">LPBank</span>
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">Woori Bank</span>
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">SHB</span>
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">SeABank</span>
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">Nam A Bank</span>
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">MSB</span>
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">CoopBank</span>
+                            <span style="background: var(--bg-main); padding: 4px 10px; border-radius: 4px; margin: 2px; display: inline-block;">PVcomBank</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">1</div>
+                        <div class="step-info">
+                            <h4>Thông tin tài khoản (Bước 01/04)</h4>
+                            <span>Chọn ngân hàng và nhập số tài khoản</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="action-item">
+                            <span class="action-number">1</span>
+                            <span class="action-text">Chọn ngân hàng từ danh sách</span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">2</span>
+                            <span class="action-text">Điền thông tin theo bảng sau:</span>
+                        </div>
+
+                        <div class="table-wrapper" style="margin-top: 15px;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Trường</th>
+                                        <th>Nội dung</th>
+                                        <th>Ghi chú</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Tên tài khoản</td>
+                                        <td>Tên chủ tài khoản</td>
+                                        <td>✅ Tự động điền</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Loại liên kết</td>
+                                        <td>Số tài khoản</td>
+                                        <td>Giữ mặc định</td>
+                                    </tr>
+                                    <tr class="table-highlight">
+                                        <td><strong>Số tài khoản</strong></td>
+                                        <td>Nhập số TK ngân hàng</td>
+                                        <td>📝 <strong>CẦN NHẬP</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Số điện thoại</td>
+                                        <td>SĐT đăng ký ngân hàng</td>
+                                        <td>✅ Tự động điền</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Loại giấy tờ</td>
+                                        <td>Căn cước công dân</td>
+                                        <td>✅ Tự động điền</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Số giấy tờ</td>
+                                        <td>Số CCCD</td>
+                                        <td>✅ Tự động điền</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Liên kết</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">2</div>
+                        <div class="step-info">
+                            <h4>Kiểm tra thông tin (Bước 02/04)</h4>
+                            <span>Xác nhận thông tin tài khoản</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="action-item">
+                            <span class="action-number">1</span>
+                            <span class="action-text">Kiểm tra lại thông tin đã nhập</span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">2</span>
+                            <span class="action-text">Nhập <strong>Mã Captcha</strong></span>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Liên kết</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">3</div>
+                        <div class="step-info">
+                            <h4>Xác thực (Bước 03/04)</h4>
+                            <span>Xác thực qua SmartOTP của ngân hàng</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="info-box important">
+                            <span class="icon">⚠️</span>
+                            <div>
+                                <strong>QUAN TRỌNG</strong>
+                                <p>Mã OTP ở bước này lấy từ <strong>ỨNG DỤNG NGÂN HÀNG</strong> (SmartOTP), <strong>KHÔNG</strong> phải SMS!</p>
+                            </div>
+                        </div>
+
+                        <div class="action-item">
+                            <span class="action-number">1</span>
+                            <span class="action-text">Mở <strong>ứng dụng ngân hàng</strong> trên điện thoại</span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">2</span>
+                            <span class="action-text">Vào tính năng <strong>SmartOTP</strong> hoặc <strong>Xác thực giao dịch</strong></span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">3</span>
+                            <span class="action-text">Lấy mã OTP</span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">4</span>
+                            <span class="action-text">Nhập mã OTP vào hệ thống thuế</span>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Xác thực</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">4</div>
+                        <div class="step-info">
+                            <h4>Kết quả (Bước 04/04)</h4>
+                            <span>Liên kết thành công</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="info-box tip">
+                            <span class="icon">✅</span>
+                            <div>
+                                <strong>Liên kết tài khoản ngân hàng thành công</strong>
+                                <p>Tài khoản ngân hàng đã được liên kết với MST. Bạn có thể sử dụng tài khoản này để nộp thuế.</p>
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Tiếp tục nộp thuế</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Part D: Nộp thuế -->
+            <section id="part-d" class="section">
+                <div class="section-header">
+                    <div class="section-icon purple">💳</div>
+                    <div class="section-title">
+                        <h2>Phần D: Nộp thuế</h2>
+                        <p>Hoàn tất thanh toán thuế qua ngân hàng</p>
+                    </div>
+                </div>
+
+                <!-- Progress Flow -->
+                <div class="progress-flow">
+                    <div class="progress-step completed">
+                        <div class="step-circle">01</div>
+                        <span class="step-label">Chọn TK</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step completed">
+                        <div class="step-circle">02</div>
+                        <span class="step-label">Chọn khoản nộp</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step completed">
+                        <div class="step-circle">03</div>
+                        <span class="step-label">Cập nhật TT</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step completed">
+                        <div class="step-circle">04</div>
+                        <span class="step-label">Tạo giấy nộp</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step completed">
+                        <div class="step-circle">05</div>
+                        <span class="step-label">Xác thực</span>
+                    </div>
+                    <div class="progress-connector active"></div>
+                    <div class="progress-step active">
+                        <div class="step-circle">06</div>
+                        <span class="step-label">Kết quả</span>
+                    </div>
+                </div>
+
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">1</div>
+                        <div class="step-info">
+                            <h4>Chọn số tài khoản/Số thẻ (Bước 01/06)</h4>
+                            <span>Chọn tài khoản và phương thức nộp</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="action-item">
+                            <span class="action-number">1</span>
+                            <span class="action-text">Chọn tài khoản ngân hàng đã liên kết từ dropdown</span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">2</span>
+                            <span class="action-text">Chọn phương thức: <span class="btn-indicator secondary">Nộp thuế theo tờ khai</span></span>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Tiếp tục</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">2</div>
+                        <div class="step-info">
+                            <h4>Chọn khoản nộp (Bước 02/06)</h4>
+                            <span>Tra cứu và chọn tờ khai cần nộp thuế</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="action-item">
+                            <span class="action-number">1</span>
+                            <span class="action-text">Chọn khoảng thời gian: <strong>Ngày gửi từ ngày</strong> → <strong>Đến ngày</strong></span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">2</span>
+                            <span class="action-text">Nhấn <span class="btn-indicator">Tra Cứu</span></span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">3</span>
+                            <span class="action-text">Kết quả hiển thị tờ khai đã nộp</span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">4</span>
+                            <span class="action-text">Nhấn <span class="btn-indicator secondary">Nộp thuế</span> ở cột Thao tác</span>
+                        </div>
+
+                        <p style="margin-top: 15px;"><strong>Màn hình chi tiết các khoản thuế:</strong></p>
+                        <div class="table-wrapper" style="margin-top: 10px;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Nội dung các khoản nộp NSNN</th>
+                                        <th>Mã</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Thuế giá trị gia tăng hàng sản xuất, kinh doanh trong nước</td>
+                                        <td><strong>1701</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Thuế thu nhập từ hoạt động sản xuất, kinh doanh của cá nhân</td>
+                                        <td><strong>1003</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Tiếp tục</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">3</div>
+                        <div class="step-info">
+                            <h4>Cập nhật thông tin (Bước 03/06)</h4>
+                            <span>Xác nhận thông tin nơi phát sinh khoản thu</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <p>Các trường được <strong>tự động điền</strong>:</p>
+                        <ul class="checklist">
+                            <li><span class="check-icon">✓</span><span>Tỉnh/Thành phố</span></li>
+                            <li><span class="check-icon">✓</span><span>Xã/phường/đặc khu</span></li>
+                            <li><span class="check-icon">✓</span><span>Cơ quan quản lý thu</span></li>
+                            <li><span class="check-icon">✓</span><span>Chuyển cho kho bạc nhà nước</span></li>
+                        </ul>
+                        <p style="margin-top: 15px;">Chọn: <span class="btn-indicator secondary">Nộp vào NSNN (TK 7111)</span></p>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Tạo giấy nộp tiền</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">4</div>
+                        <div class="step-info">
+                            <h4>Tạo giấy nộp tiền (Bước 04/06)</h4>
+                            <span>Xác nhận khoản tiền nộp</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="action-item">
+                            <span class="action-number">1</span>
+                            <span class="action-text">Bảng hiển thị giấy nộp tiền đã tạo</span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">2</span>
+                            <span class="action-text"><strong>Tích chọn</strong> vào cột "Chọn" của khoản tiền nộp</span>
+                        </div>
+                        <div class="action-item">
+                            <span class="action-number">3</span>
+                            <span class="action-text">Nhập <strong>Mã Captcha</strong></span>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Nộp thuế</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">5</div>
+                        <div class="step-info">
+                            <h4>Xác thực (Bước 05/06)</h4>
+                            <span>Xác thực OTP qua SMS</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="action-item">
+                            <span class="action-number">1</span>
+                            <span class="action-text">Nhập <strong>mã OTP</strong> được gửi về số điện thoại</span>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Xác thực</span></p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="step-card">
+                    <div class="step-header" onclick="toggleStep(this)">
+                        <div class="step-number">6</div>
+                        <div class="step-info">
+                            <h4>Kết quả (Bước 06/06)</h4>
+                            <span>Nộp thuế thành công</span>
+                        </div>
+                        <div class="step-toggle">▼</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="info-box tip">
+                            <span class="icon">🎉</span>
+                            <div>
+                                <strong>THÀNH CÔNG</strong>
+                                <p>Nộp thuế thành công! Mã tham chiếu: <strong>XXXXXXXXXXXXXXXXX</strong></p>
+                                <p style="margin-top: 8px;">Link: "Tra cứu chứng từ nộp thuế"</p>
+                            </div>
+                        </div>
+                        <p style="margin-top: 15px;">→ Nhấn <span class="btn-indicator">Trang chủ</span> để hoàn tất</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tax Rate Section -->
+            <section id="tax-rate" class="section">
+                <div class="section-header">
+                    <div class="section-icon teal">📊</div>
+                    <div class="section-title">
+                        <h2>Thông tin thuế suất</h2>
+                        <p>Thuế suất áp dụng cho hoạt động bán hàng hóa</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <h3>💰 Bảng thuế suất</h3>
+                        <div class="card-toggle">▼</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Loại thuế</th>
+                                        <th>Thuế suất</th>
+                                        <th>Ghi chú</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Thuế GTGT</strong></td>
+                                        <td style="color: var(--primary); font-weight: 700; font-size: 18px;">1%</td>
+                                        <td>Trên doanh thu</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Thuế TNCN</strong></td>
+                                        <td style="color: var(--primary); font-weight: 700; font-size: 18px;">0.5%</td>
+                                        <td>Trên doanh thu</td>
+                                    </tr>
+                                    <tr class="table-highlight">
+                                        <td><strong>TỔNG CỘNG</strong></td>
+                                        <td style="color: var(--accent); font-weight: 700; font-size: 20px;">1.5%</td>
+                                        <td>Trên doanh thu</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <h3>🧮 Công thức & Ví dụ tính thuế</h3>
+                        <div class="card-toggle">▼</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="code-block">
+Thuế GTGT = Doanh thu × 1%
+Thuế TNCN = Doanh thu × 0.5%
+<strong style="color: #60a5fa;">Tổng thuế = Doanh thu × 1.5%</strong>
+                        </div>
+
+                        <p style="margin: 20px 0 10px;"><strong>Ví dụ tính thuế:</strong></p>
+                        <div class="table-wrapper">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Doanh thu</th>
+                                        <th>Thuế GTGT (1%)</th>
+                                        <th>Thuế TNCN (0.5%)</th>
+                                        <th>Tổng thuế</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>100.000.000 VND</td>
+                                        <td>1.000.000 VND</td>
+                                        <td>500.000 VND</td>
+                                        <td><strong>1.500.000 VND</strong></td>
+                                    </tr>
+                                    <tr class="table-highlight">
+                                        <td>204.527.454 VND</td>
+                                        <td>2.045.275 VND</td>
+                                        <td>1.022.637 VND</td>
+                                        <td><strong>3.067.912 VND</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>500.000.000 VND</td>
+                                        <td>5.000.000 VND</td>
+                                        <td>2.500.000 VND</td>
+                                        <td><strong>7.500.000 VND</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Notes Section -->
+            <section id="notes" class="section">
+                <div class="section-header">
+                    <div class="section-icon red">⚠️</div>
+                    <div class="section-title">
+                        <h2>Lưu ý quan trọng</h2>
+                        <p>Các điểm cần chú ý khi thực hiện quy trình</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <h3>⏰ Về thời gian</h3>
+                        <div class="card-toggle">▼</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="info-box info">
+                            <span class="icon">📄</span>
+                            <div>
+                                <strong>Thời gian tải chứng từ</strong>
+                                <p>Sau khi nộp thuế thành công, thường mất <strong>1 ngày làm việc</strong> để có thể tải được chứng từ nộp thuế.</p>
+                            </div>
+                        </div>
+                        <div class="info-box note">
+                            <span class="icon">📅</span>
+                            <div>
+                                <strong>Thời hạn nộp thuế</strong>
+                                <p>Theo quy định, nộp thuế trước ngày cuối cùng của tháng kế tiếp.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <h3>💻 Về kỹ thuật</h3>
+                        <div class="card-toggle">▼</div>
+                    </div>
+                    <div class="card-content">
+                        <ul class="checklist">
+                            <li><span class="check-icon">✓</span><span>Sử dụng trình duyệt <strong>Chrome</strong> hoặc <strong>Firefox</strong> phiên bản mới nhất</span></li>
+                            <li><span class="check-icon">✓</span><span>Đảm bảo kết nối internet <strong>ổn định</strong></span></li>
+                            <li><span class="check-icon">✓</span><span><strong>Không tắt trang</strong> khi đang trong quá trình xác thực OTP</span></li>
+                            <li><span class="check-icon">✓</span><span>Mã OTP có hiệu lực trong <strong>5 phút</strong> (khoảng 300 giây)</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <h3>🏦 Về tài khoản ngân hàng</h3>
+                        <div class="card-toggle">▼</div>
+                    </div>
+                    <div class="card-content">
+                        <ul class="checklist">
+                            <li><span class="check-icon">✓</span><span>Tài khoản ngân hàng phải đăng ký <strong>đúng tên</strong> với tên trên CCCD</span></li>
+                            <li><span class="check-icon">✓</span><span>Số điện thoại đăng ký ngân hàng phải <strong>trùng khớp</strong> với số đăng ký VNeID</span></li>
+                            <li><span class="check-icon">✓</span><span>Đảm bảo tài khoản có <strong>đủ số dư</strong> để nộp thuế</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <h3>📋 Về thông tin kê khai</h3>
+                        <div class="card-toggle">▼</div>
+                    </div>
+                    <div class="card-content">
+                        <ul class="checklist">
+                            <li><span class="check-icon">✓</span><span>Kê khai doanh thu theo <strong>VND</strong> (nếu doanh thu bằng ngoại tệ, quy đổi theo tỷ giá)</span></li>
+                            <li><span class="check-icon">✓</span><span>Giữ lại các <strong>chứng từ gốc</strong> (statement từ Etsy, PayPal...) để đối chiếu khi cần</span></li>
+                            <li><span class="check-icon">✓</span><span><strong>Lưu mã tham chiếu</strong> sau khi nộp thuế thành công</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" onclick="toggleCard(this)">
+                        <h3>📞 Hỗ trợ</h3>
+                        <div class="card-toggle">▼</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-wrapper">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Đường dây nóng Cục Thuế</strong></td>
+                                        <td style="color: var(--primary); font-weight: 600;">1900.6881</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Website</strong></td>
+                                        <td><a href="https://thuedientu.gdt.gov.vn" target="_blank" style="color: var(--primary);">https://thuedientu.gdt.gov.vn</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Cổng TMĐT</strong></td>
+                                        <td><a href="https://canhantmdt.gdt.gov.vn" target="_blank" style="color: var(--primary);">https://canhantmdt.gdt.gov.vn</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Email hỗ trợ</strong></td>
+                                        <td>Liên hệ cơ quan thuế địa phương</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p><strong>Tài liệu được cập nhật lần cuối: Tháng 12/2025</strong></p>
+                <p>Nguồn: Cổng thông tin điện tử Tổng cục Thuế | <a href="https://canhantmdt.gdt.gov.vn" target="_blank">https://canhantmdt.gdt.gov.vn</a></p>
+                <p style="margin-top: 10px; font-size: 12px; color: var(--text-muted);">Cơ sở pháp lý: Thông tư 105/2020/TT-BTC ngày 03/12/2020 của Bộ Tài chính</p>
+            </footer>
+        </div>
+    </main>
+
+    <script>
+        // Toggle step cards
+        function toggleStep(header) {
+            const card = header.parentElement;
+            card.classList.toggle('collapsed');
+        }
+
+        // Toggle regular cards
+        function toggleCard(header) {
+            const card = header.parentElement;
+            card.classList.toggle('collapsed');
+        }
+
+        // Active nav item on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === '#' + current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for nav items
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = item.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
